@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WormID.org</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div id="sidebar">
+      <div id="header">Menu</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="data.html" class="current">Data</a></li>
+        <li><a href="code.html">Code</a></li>
+        <li><a href="add.html">Add your data</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="mailto:hello@focolab.org">For more information contact us at: <mail>hello@focolab.com</mail></a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <img src="worm_image.jpg" alt="worm_image" id="image">
+      <div id="page-header-box">
+        <h2><b>Datasets</b></h2>
+        <p>
+        Datasets are stored on the <a href=https://dandiarchive.org>Dandi archive</a>. Each dataset here will have a link to the Dandi archive dataset, 
+        a description of the contents of the dataset, and example code for reading the NWB files contained in 
+        dandiset.
+        </p>
+        <p>See page on adding your own dataset to learn how to add your own data to this list.</p>
+      </div>
+      <div id="data-box">
+        <h2><b><a href = https://dandiarchive.org/dandiset/000472/draft/files?location=>NeuroPAL datasets - FOCO lab</a></b></h2>
+        <p><b>Number of worms:</b> 8</p>
+        <p>
+        <b>Description: </b>NeuroPAL images collected by the Kato lab at UCSF using a spinning disk 
+        confocal microscope. Images are of the head of the animal only. There are about 150-200 neuron centers
+        per worm, with 30-60% of those neurons having associated ID labels.
+        </p>
+        <div id="code-block">
+        <pre>
+            <code>
+    <i>  
+    with NWBHDF5IO(datapath+"/2022-02-12-w01-NP1.nwb", mode='r', load_namespaces=True) as io:
+        read_nwbfile = io.read()
+        subject = read_nwbfile.subject 
+        image = read_nwbfile.acquisition['NeuroPALImageRaw'].data[:] 
+        resolution = read_nwbfile.acquisition['NeuroPALImageRaw'].resolution[:] 
+        channels = read_nwbfile.acquisition['NeuroPALImageRaw'].RGBW_channels[:] 
+        seg = read_nwbfile.processing['NeuroPAL']['VolumeSegmentation'].voxel_mask[:] 
+        im_vol = read_nwbfile.processing['NeuroPAL']['ImagingVolume'] 
+        optchans = read_nwbfile.processing['NeuroPAL']['ImagingVolume'].optical_channel_plus[:]
+        chan_refs = read_nwbfile.processing['NeuroPAL']['OpticalChannelRefs'].data[:] 
+        proc_image = read_nwbfile.processing['ProcessedImage']['Hist_match_med_filt'].data[:] 
+    </i>
+            </code>
+        </pre>
+        </div>
+        <p> <b>subject:</b> contains the relevant metadata about the experimental subject</p>
+        <p> <b>image:</b> contains the raw image with dimensions (Z,C,Y,X)</p>
+        <p> <b>resolution:</b> contains the resolution of the image in um/pixels</p>
+        <p> <b>channels:</b> contains which channels of the image correspond to which RGBW pseudocolors</p>
+        <p> <b>seg:</b> contains a list of neuron centers and associated IDs (X,Y,Z,weight,ID)</p>
+        <p> <b>im_vol:</b> contains the metadata associated with the imaging acquisition</p>
+        <p> <b>optchans:</b> contains information about all the optical channels used in acquisition</p>
+        <p> <b>chan_refs:</b> contains the order of the optical channels in the image</p>
+        <p> <b>proc_image:</b> contains the preprocessed raw image with dimensions (Z,C,Y,X)</p>
+        <p> *note: images have dimensions (Z,C,Y,X) because this is the order necessary for Fiji to properply read the associated tiff file</p>
+
+      </div> 
+      <div id="data-box">
+        <h2><b>NeuroPAL datasets - FOCO lab 2</b></h2>
+        <p>Datasets collected post 2023-03-22</p>
+      </div> 
+      <div id="data-box">
+        <h2><b>NeuroPAL datasets - Yemini lab</b></h2>
+        <p>Datasets collected by the Yemini lab for the original neuroPAL paper</p>
+      </div> 
+    </div>
+  </body>
+</html>
