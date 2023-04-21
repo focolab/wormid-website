@@ -12,6 +12,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--main1)
 }
 
 #sidebar {
@@ -76,6 +77,13 @@ body {
   color: white;
 }
 
+#top-box p a {
+  color:rgb(0, 158, 194)
+}
+#page-header-box p a {
+  color:rgb(0, 158, 194)
+}
+
 #middle-box {
   background-color: var(--main2);
   padding: 20px;
@@ -111,6 +119,13 @@ body {
   font-size: 18px;
 }
 
+#question-box{
+  background-color: var(--main1);
+  border-top: 2px solid var(--main4);
+  padding: 20px;
+  font-size: 18px;
+}
+
 #code-block {
   background-color: #000000;
   color: rgb(0, 158, 194);
@@ -118,6 +133,12 @@ body {
   overflow: auto;
   font-size-adjust: 0.5;
   padding: 0px;
+}
+
+#add-data {
+  background-color: var(main1);
+  padding: 20px;
+  font-size: 18px;
 }
 
 pre, code, i1{

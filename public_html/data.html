@@ -19,13 +19,18 @@
     <div id="main">
       <img src="worm_image.jpg" alt="worm_image" id="image">
       <div id="page-header-box">
-        <h2><b>Datasets</b></h2>
+        <h2><b>Data</b></h2>
         <p>
         Datasets are stored on the <a href=https://dandiarchive.org>Dandi archive</a>. Each dataset here will have a link to the Dandi archive dataset, 
-        a description of the contents of the dataset, and example code for reading the NWB files contained in 
+        a description of the contents of the dataset, and example python code for reading the NWB files contained in 
         dandiset.
         </p>
+        <p>
+        Install pynwb in python environment and import NWBHDF5IO from pynwb into python file to run code to read NWB files.
+        See <a href=https://pynwb.readthedocs.io/en/stable/>pynwb documentation</a> for more information.
+        </p>
         <p>See page on adding your own dataset to learn how to add your own data to this list.</p>
+        
       </div>
       <div id="data-box">
         <h2><b><a href = https://dandiarchive.org/dandiset/000472/draft/files?location=>NeuroPAL datasets - FOCO lab</a></b></h2>
@@ -65,14 +70,6 @@
         <p> <b>proc_image:</b> contains the preprocessed raw image with dimensions (Z,C,Y,X)</p>
         <p> *note: images have dimensions (Z,C,Y,X) because this is the order necessary for Fiji to properply read the associated tiff file</p>
 
-      </div> 
-      <div id="data-box">
-        <h2><b>NeuroPAL datasets - FOCO lab 2</b></h2>
-        <p>Datasets collected post 2023-03-22</p>
-      </div> 
-      <div id="data-box">
-        <h2><b>NeuroPAL datasets - Yemini lab</b></h2>
-        <p>Datasets collected by the Yemini lab for the original neuroPAL paper</p>
       </div> 
     </div>
   </body>

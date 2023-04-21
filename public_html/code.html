@@ -18,18 +18,28 @@
     </div>
     <div id="main">
       <img src="worm_image.jpg" alt="worm_image" id="image">
-      <div id="top-box">
-        <h2><b>Welcome to wormid.org</b></h2>
-        <p>A website to consolidate existing labeled datasets of C elegans whole brain imaging.</p>
+      <div id="page-header-box">
+        <h2><b>Code</b></h2>
+        <p>This page contains descriptions and links to relevant code for reading, processing, and analyzing neuroPAL images.</p>
       </div>
-      <div id="middle-box">
-        <h2><b>Summary stats</b></h2>
-        <p>There are currently 0 datasets.</p>
+      <div id="data-box">
+        <h2><b><a href=https://github.com/focolab/eats-worm>Eats-worm</a></b></h2>
+        <img src="eats_worm.jpg" alt="eats_worm_GUI" id = "image">
+        <p>
+        Eats-worm is an open source software system for automatic neuron segmentation and identification with GUI 
+        support for manual curation of algorithmic results. Eats-worm contains a full data-processing pipeline that 
+        takes in raw neuroPAL images and metadata, runs basic preprocessing steps, finds neuron centers, assigns
+        probabilistic labels to those neuron centers, and extracts time series calcium activity from those neurons. 
+        Eats-worm can be used with minimal coding experience besides setting up a python environment and making basic 
+        parameter changes. The "NP_example.py" file is provided which demonstrates an example of how eats-worm can be used. 
+        The repository also contains code for converting raw images and segmentation results to the NWB format.
+        </p>
+        <p>
+        Instructions for installation and use of the eats-worm software is provided on the readme page of the attached Github 
+        repository.
+        </p>
       </div>
-      <div id="bottom-box">
-        <h2><b>News</b></h2>
-        <p><b>April 13 2023:</b> Initial relaunch of wormID website</p>
-      </div>
+      
     </div>
   </body>
 </html>
