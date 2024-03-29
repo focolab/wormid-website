@@ -5,41 +5,84 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="sidebar">
-      <div id="header">Menu</div>
+    <div class="menubar">
       <ul>
         <li><a href="index.htm" class="current">Home</a></li>
         <li><a href="data.html">Data</a></li>
         <li><a href="code.html">Code</a></li>
         <li><a href="add.html">Add your data</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="mailto:hello@focolab.org">For more information contact us at: <mail>hello@focolab.org</mail></a></li>
+        <li><a>For more information contact us at: daniel.sprague[at]ucsf[dot]edu</a></li>
       </ul>
     </div>
-    <div id="main">
-      <img src="worm_image.jpg" alt="worm_image" id="image">
-      <div id="top-box">
-        <h2><b>Welcome to wormid.org</b></h2>
+    <div class="main">
+      <div class="page-header-box">
+        <header> Welcome to WormID.org!</header>
         <p>
-        Our aim is to simplify the process of developing new approaches for labeling <i>C. elegans</i> neurons in volumetric images by
-        providing a resource for tools and code for facilitating neuron ID and related data analysis tasks as well as a consolidated database 
-        of various imaging datasets from labs around the world. We hope that the diversity of these datasets as well as the tools and protocols 
-        we provide here will expedite the development of new algorithms for automatic identification of <i>C. elegans</i> neurons enabling new 
-        discoveries on the dynamics of the <i>C. elegans</i> brain.
+        A comprehensive resource for the <i>C. elegans</i> neuroscience community to facilitate data standardization, storage, and sharing as well
+        as provide tools for data conversion and pipelines for analysis of <i>C. elegans</i> whole-brain imaging.
         </p>
-        <p>
-        We provide links to existing databases of labeled neuroPAL images stored in the <a href=https://www.nwb.org>Neurodata without borders</a> (NWB) format
-        on the <a href=https://dandiarchive.org>Dandi Archive</a> as well as code for pre-processing, neuron segmentation, curation, and identification of novel 
-        neuroPAL images. See our page on adding your own data for information on how to upload your datasets to Dandi and add them to this site.
-        </p>
+        <img src="worm_image.jpg" alt="worm_image" id="celeganimage">
       </div>
-      <div id="middle-box">
-        <h2><b>Summary stats</b></h2>
-        <p>There is currently 1 dataset containing a total of 8 worms.</p>
+      <div class="content-box-1">
+        <h2><b>About</b></h2>
+        <div class="container">
+          <p>
+            We aim to simplify the process of developing new approaches for labeling <i>C. elegans</i> neurons in volumetric images by
+            providing a resource for tools and code for facilitating neuron ID and related data analysis tasks as well as a consolidated database 
+            of various imaging datasets from labs around the world. We hope these resources will expedite the development of new algorithms for automatic identification of <i>C. elegans</i> 
+            neurons and enable new discoveries.
+            <br><br>
+            We provide links to existing databases of labeled NeuroPAL images and GCaMP time series stored in the <a href=https://www.nwb.org>Neurodata without borders</a> (NWB) format
+            on the <a href=https://dandiarchive.org>DANDI Archive</a> as well as code for pre-processing, neuron segmentation, curation, and identification of novel 
+            NeuroPAL images.
+          </p>
+          <img src="20230506-15-33-51.gif" alt="calc_image_gif" id="calcimage">
+        </div>
       </div>
-      <div id="bottom-box">
-        <h2><b>News</b></h2>
-        <p><b>April 13 2023:</b> Initial relaunch of wormID website</p>
+      <div class="content-box-2">
+        <h2><b>Data</b></h2>
+        <div class="container">
+          <img src="NWB_dandi.png" alt="NWB_dandi" id="calcimage">
+          <p>
+            We introduce a novel extension to the Neurodata Without Borders (NWB) HDF5-based file format to support data associated with volumetric calcium
+            imaging in <i>C. elegans</i>. We believe NWB will be an extremeley useful tool for the worm neuroscience community to standardize file formats and
+            data storage solutions in order to facilitate data sharing and collaborations.
+            <br><br>
+            The data page contains links to datasets stored on the DANDI archive and information about how to download and use NWB files stored on the DANDI archive. 
+            <br><br>
+            See our page on adding your own dataset to learn how to convert your own data to NWB, upload it to DANDI, and add it here to contribute to this community resource.
+          </p>
+        </div>
+      </div>
+      <div class = "content-box-1">
+        <h2><b>Code</b></h2>
+        <div class="container">
+          <p>
+            The code page contains descriptions and links to relevant code for reading, processing, and analyzing NeuroPAL images and GCaMP time series.
+            <br><br>
+            We provide a few example pipelines for segmentation, curation, and quantification of neurons from raw data. This page will be updated 
+            as these pipelines continue to develop.
+            <br><br>
+            We hope to establish a community framework for <i>C. elegans</i> whole-brain imaging analysis pipelines that carries data through the whole process
+            starting from raw NeuroPAL structural images and calcium imaging data to segmented neuron locations, cell identity labels, and quantified calcium activity
+            for each cell. 
+          </p>
+          <img src="npex-GUI.jpg" alt="eats-worm" id="calcimage">
+        </div>
+      </div>
+      <div class="content-box-2">
+        <h2><b>Adding your own data</b></h2>
+        <div class="container">
+          <img src="dandi_example.png" alt="dandi_example" id="calcimage">
+          <p>
+            The 'add your data' page contains comprehensive tools and information for converting your own calcium imaging data into the NWB format, uploading the data to DANDI,
+            and adding it here to contribute to this community resource. 
+            <br><br>
+            We hope to continue to grow this resource of existing datasets to facilitate new research and the development of new tools by providing datasets to be used
+            for training and testing of both new and existing approaches.
+          </p>
+        </div>
       </div>
     </div>
   </body>

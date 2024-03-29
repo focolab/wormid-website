@@ -5,72 +5,119 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="sidebar">
-      <div id="header">Menu</div>
+    <div class="menubar">
       <ul>
         <li><a href="index.htm">Home</a></li>
         <li><a href="data.html" class="current">Data</a></li>
         <li><a href="code.html">Code</a></li>
         <li><a href="add.html">Add your data</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="mailto:hello@focolab.org">For more information contact us at: <mail>hello@focolab.org</mail></a></li>
+        <li><a>For more information contact us at: daniel.sprague[at]ucsf[dot]edu</a></li>
       </ul>
     </div>
-    <div id="main">
-      <img src="worm_image.jpg" alt="worm_image" id="image">
-      <div id="page-header-box">
-        <h2><b>Data</b></h2>
+    <div class="main">
+      <div class="page-header-box">
+        <header>Data</header>
         <p>
-        Datasets are stored on the <a href=https://dandiarchive.org>Dandi archive</a>. Each dataset here will have a link to the Dandi archive dataset, 
-        a description of the contents of the dataset, and example python code for reading the NWB files contained in 
-        dandiset.
+        Datasets are stored for free on the <a href=https://dandiarchive.org>DANDI archive</a>. Here we provide a curated list of DANDIsets provided by various labs with basic 
+        descriptions of the contents of each dataset and links to the DANDI page where they are housed. The DANDI page should contain links to the files in the dataset,
+        relevant metadata for the experiments, and information about the contents of the NWB files.
         </p>
         <p>
-        Install pynwb in python environment and import NWBHDF5IO from pynwb into python file to run code to read NWB files.
+          <b>If using Python:</b> Install pynwb in python environment and import NWBHDF5IO from pynwb into python file to run code to read NWB files.
         See <a href=https://pynwb.readthedocs.io/en/stable/>pynwb documentation</a> for more information.
+        </p>
+        <p>
+          <b>If using Matlab:</b> Download MatNWB and generate API to interface with NWB files in Matlab. See <a href="https://neurodatawithoutborders.github.io/matnwb/"> MatNWB documentation</a>
+          for more information.
         </p>
         <p>See page on adding your own dataset to learn how to add your own data to this list.</p>
         
       </div>
-      <div id="data-box">
-        <h2><b><a href = https://dandiarchive.org/dandiset/000472/draft/files?location=>NeuroPAL datasets - FOCO lab</a></b></h2>
-        <p><b>Number of worms:</b> 8</p>
-        <p>
-        <b>Description: </b>NeuroPAL images collected by the Kato lab at UCSF using a spinning disk 
-        confocal microscope. Images are of the head of the animal only. There are about 150-200 neuron centers
-        per worm, with 30-60% of those neurons having associated ID labels.
-        </p>
-        <div id="code-block">
-        <pre>
-            <code>
-    <i>  
-    with NWBHDF5IO(datapath+"/2022-02-12-w01-NP1.nwb", mode='r', load_namespaces=True) as io:
-        read_nwbfile = io.read()
-        subject = read_nwbfile.subject 
-        image = read_nwbfile.acquisition['NeuroPALImageRaw'].data[:] 
-        resolution = read_nwbfile.acquisition['NeuroPALImageRaw'].resolution[:] 
-        channels = read_nwbfile.acquisition['NeuroPALImageRaw'].RGBW_channels[:] 
-        seg = read_nwbfile.processing['NeuroPAL']['VolumeSegmentation'].voxel_mask[:] 
-        im_vol = read_nwbfile.processing['NeuroPAL']['ImagingVolume'] 
-        optchans = read_nwbfile.processing['NeuroPAL']['ImagingVolume'].optical_channel_plus[:]
-        chan_refs = read_nwbfile.processing['NeuroPAL']['OpticalChannelRefs'].data[:] 
-        proc_image = read_nwbfile.processing['ProcessedImage']['Hist_match_med_filt'].data[:] 
-    </i>
-            </code>
-        </pre>
-        </div>
-        <p> <b>subject:</b> contains the relevant metadata about the experimental subject</p>
-        <p> <b>image:</b> contains the raw image with dimensions (Z,C,Y,X)</p>
-        <p> <b>resolution:</b> contains the resolution of the image in um/pixels</p>
-        <p> <b>channels:</b> contains which channels of the image correspond to which RGBW pseudocolors</p>
-        <p> <b>seg:</b> contains a list of neuron centers and associated IDs (X,Y,Z,weight,ID)</p>
-        <p> <b>im_vol:</b> contains the metadata associated with the imaging acquisition</p>
-        <p> <b>optchans:</b> contains information about all the optical channels used in acquisition</p>
-        <p> <b>chan_refs:</b> contains the order of the optical channels in the image</p>
-        <p> <b>proc_image:</b> contains the preprocessed raw image with dimensions (Z,C,Y,X)</p>
-        <p> *note: images have dimensions (Z,C,Y,X) because this is the order necessary for Fiji to properply read the associated tiff file</p>
-
-      </div> 
+      <div class="round-box">
+      <table>
+        <tr>
+          <th> Dataset</th>
+          <th> Number of worms </th>
+          <th> Lab</th>
+          <th> NeuroPAL </th>
+          <th> GCaMP </th>
+          <th> Segmented neurons </th>
+          <th> IDs </th>
+          <th> Notes </th>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000565?pos=2>Whole-brain neural dynamics with single cell optical stimulation</a></td>
+          <td> 21 </td>
+          <td> Kato lab - UCSF</td>
+          <td> Yes </td>
+          <td> Some </td>
+          <td> 78-139 </td>
+          <td> 30-82 </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000472?pos=2>NeuroPAL structural images and spontaneous activity in immobilized worms</a></td>
+          <td> 20 </td>
+          <td> Kato lab - UCSF</td>
+          <td> Yes </td>
+          <td> Some </td>
+          <td> 166-180 </td>
+          <td> 36-63 </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000715?pos=6>NeuroPAL reference images</a></td>
+          <td> 10 </td>
+          <td> Hobert lab - Columbia</td>
+          <td> Yes </td>
+          <td> No </td>
+          <td> 166-188 </td>
+          <td> 164-184 </td>
+          <td> Original reference dataset from NeuroPAL paper</td>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000541?pos=1>NeuroPAL Microfluidic Chip Images and GCaMP activity</a></td>
+          <td> 21 </td>
+          <td> Hobert lab - Columbia</td>
+          <td> Yes </td>
+          <td> Yes </td>
+          <td> 166-188 </td>
+          <td> 164-184 </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000692?search=C%20elegans&pos=7>Whole-brain spontaneous GCaMP activity in semi-restricted worms</a></td>
+          <td> 9 </td>
+          <td> Kimura lab - Nagoya city University</td>
+          <td> Yes </td>
+          <td> Yes </td>
+          <td> 149-163 </td>
+          <td> 149-163 </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000776?pos=3>Whole-brain spontaneous GCaMP activity in semi-restricted worms</a></td>
+          <td> 38 </td>
+          <td> Flavell lab - MIT</td>
+          <td> Yes </td>
+          <td> Yes </td>
+          <td> 29-96 </td>
+          <td> 29-96 </td>
+          <td> Freely moving worms, includes NIR bright field</td>
+        </tr>
+        <tr>
+          <td><a href = https://dandiarchive.org/dandiset/000714?pos=4> NeuroPAL structural volumes</a></td>
+          <td> 9 </td>
+          <td> Lu lab - Georgia Tech</td>
+          <td> Yes </td>
+          <td> No </td>
+          <td> 113-125 </td>
+          <td> 58-69 </td>
+          <td>  </td>
+        </tr>
+      </table>
+    </div>
     </div>
   </body>
 </html>

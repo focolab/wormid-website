@@ -5,24 +5,38 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="sidebar">
-      <div id="header">Menu</div>
+    <div class="menubar">
       <ul>
         <li><a href="index.htm">Home</a></li>
         <li><a href="data.html">Data</a></li>
         <li><a href="code.html">Code</a></li>
         <li><a href="add.html">Add your data</a></li>
         <li><a href="faq.html" class="current">FAQ</a></li>
-        <li><a href="mailto:hello@focolab.org">For more information contact us at: <mail>hello@focolab.org</mail></a></li>
+        <li><a>For more information contact us at: daniel.sprague[at]ucsf[dot]edu</a></li>
       </ul>
     </div>
-    <div id="main">
-      <img src="worm_image.jpg" alt="worm_image" id="image">
-      <div id="page-header-box">
-        <h2><b>Frequently asked questions</b></h2>
+    <div class="main">
+      <div class="page-header-box">
+        <header>Frequently asked questions</header>
+        <p> 
+        This page will be updated as we get feedback. Please reach out to daniel.sprague@ucsf.edu with any questions.
+        </p>
       </div>
-      <div id="question-box">
-        <p><b>This page will be updated as we get feedback. Let us know if there is anyhting you think would be helpful here.</b></p>
+      <div class = question-block>
+        <h2>Q: Why should I pursue data standardization with NWB?</h2>
+        <p>A: One big limitation of existing automatic approaches for segmentation, identification, and quantification is that they are 
+          often only trained and tested on data acquired by one lab under a very specific set of imaging conditions. This can limit the 
+          generalizability of these approaches. Different labs have vastly different protocols for storing data which makes the task of 
+          merging diverse datasets into a single pipeline or analysis approach quite burdensome. We believe that standardizing data storage
+          approaches to a common file format and archive will make this process much simpler, enabling new collaborations and speeding up 
+          the production of new tools and algorithms.
+        </p>
+      </div>
+      <div class = question-block>
+        <h2>Q: How much does it cost to store data on DANDI?</h2>
+        <p>A: DANDI storage is completely free! Even datasets that are terabytes large can be uploaded and stored for free on DANDI.
+           DANDI is NIH-funded for at least the next 6 years and expects to be able to maintain this level of free storage long-term.
+        </p>
       </div>
     </div>
   </body>

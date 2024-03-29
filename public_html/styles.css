@@ -1,8 +1,8 @@
 :root {
-  --highlight1: #672a31;
-  --highlight2: #964a62;
-  --main1: #aaa9bf;
-  --main2: #84839a;
+  --highlight1: #d1deff;
+  --highlight2: #95b3ff;
+  --main1: #ffffff;
+  --main2: #daedff;
   --main3: #636176;
   --highlight3: #c16f6d;
   --background1: #bbbbbb; 
@@ -12,104 +12,217 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--main1)
+  background-color: var(--main1);
+  font-family: sans-serif;
 }
 
-#sidebar {
-  background-color: var(--background1);
-  width: 20%;
-  height: 100vh;
+.menubar {
+  background-color: var(--main1);
+  overflow: hidden;
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-  overflow-y: auto;
+  border-bottom: 1px solid lightgray
 }
 
-#sidebar ul {
+.menubar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-#sidebar ul li {
+.menubar ul li {
+  display: inline;
   margin: 0;
   padding: 0;
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
-#sidebar ul li a {
+.menubar ul li a {
+  text-align: center;
+  float: left;
+  padding: 14px 16px;
+  border-radius: 25px;
   display: block;
-  padding: 10px;
   text-decoration: none;
-  color: var(--light-gray);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: black;
+  background-color: var(--main1)
 }
 
-#sidebar ul li a:hover {
-  background-color: var(--highlight3);
+.menubar ul li a:hover {
+  background-color: var(--highlight1);
   font-weight: bold
 }
 
-#sidebar ul li mail {
+.menubar ul li mail {
   text-decoration: underline;
 }
 
-#sidebar a.current {
+.menubar a.current {
   font-weight: bold;
   background-color: var(--highlight2);
 }
 
-#main {
-  margin-left: 20%;
+.main {
+  margin-top: 5%;
   padding: 0px;
+}
+
+.main header {
+  background-color: var(--main1);
+  text-align: center;
+  padding: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.main description {
+  background-color: var(--main1);
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
 }
 
 #header {
   background-color: var(--highlight1);
   padding: 20px;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.page-header-box {
+  background-color: var(--main1);
+  padding: 20px;
+}
+
+.page-header-box header {
+  text-align: center;
+  background-color: var(--main1);
+  padding: 10px;
+  font-size: 40px;
   font-weight: bold;
 }
 
-#top-box {
-  background-color: var(--main3);
-  padding: 20px;
-  font-size: 18px;
-  color: white;
+.page-header-box p {
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 20px;
+  text-align: left;
+  display: block;
+
 }
 
-#top-box p a {
-  color:rgb(0, 158, 194)
-}
-#page-header-box p a {
-  color:rgb(0, 158, 194)
-}
-
-#middle-box {
+.content-box-1 {
   background-color: var(--main2);
+  color: black;
   padding: 20px;
-  font-size: 18px;
-  color: white;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
-#bottom-box {
+.content-box-1 h2 {
+  font-size: 40px
+}
+
+.content-box-1 p {
+  background-color: var(--main2);
+  font-size: 20px;
+  width: 70%;
+  display: block;
+  float: left;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction:row;
+}
+
+.content-box-2 {
   background-color: var(--main1);
+  color: black;
   padding: 20px;
-  font-size: 18px;
-  color: white;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
-#image {
-  max-width: 100%;
-  max-height: 100%;
+.content-box-2 h2 {
+  font-size: 40px;
+  text-align: left;
+  margin-left: 35%;
+}
+
+.content-box-2 p {
+  background-color: var(--main1);
+  font-size: 20px;
+  padding-left: 40px;
+  width: 70%;
+  display: block;
+  float: left;
+}
+
+.round-box {
+  background-color: var(--main2);
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.round-box table {
+  border: 3px solid;
+  width: 90%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+
+}
+
+.round-box table tr th {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid;
+  border-bottom: 2px solid;
+}
+
+.round-box table tr td {
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid;
+}
+
+.round-box table tr td a, a:hover, a:visited, a:active {
+  color: blue;
+  text-decoration: underline;
+}
+
+#celeganimage {
+  max-width: 60%;
+  max-height: 60%;
   display: block; 
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#page-header-box{
-  background-color: var(--main3);
-  padding: 20px;
-  font-size: 18px;
-  color: white
+#calcimage {
+  margin-left: 20px;
+  max-width: 30%;
+  float: left;
+}
 
+#dandi-guide-image {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #data-box{
@@ -135,10 +248,70 @@ body {
   padding: 0px;
 }
 
-#add-data {
-  background-color: var(main1);
+.code-block {
+  background-color: var(--main2);
+  color: black;
+  border-radius: 25px;
+  padding: 40px;
+  margin-top: 40px;
+  margin-left: 7%;
+  margin-right: 7%;
+  font-size: 20px;
+}
+
+.code-block h2 {
+  text-align: left;
+}
+
+.code-block p {
+  font-size: 20px;
+  text-align: left;
+  display: block;
+}
+
+#code-image {
+  margin-left: 20px;
+  max-width: 40%;
+  float: left;
+}
+
+.question-block {
+  background-color: var(--main2);
+  color: black;
+  border-radius: 25px;
+  padding: 40px;
+  margin-top: 40px;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 20px;
+}
+
+.question-block h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.question-block p {
+  margin-left: 20%;
+}
+
+.add-data {
+  background-color: var(--main2);
+  border-radius: 25px;
   padding: 20px;
-  font-size: 18px;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-left: 7%;
+  margin-right: 7%;
+  font-size: 20px;
+}
+
+.add-data ol {
+  line-height: 150%;
+}
+
+.add-data li {
+  line-height: 150%;
 }
 
 pre, code, i1{

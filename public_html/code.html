@@ -5,41 +5,54 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="sidebar">
-      <div id="header">Menu</div>
+    <div class="menubar">
       <ul>
         <li><a href="index.htm">Home</a></li>
         <li><a href="data.html">Data</a></li>
         <li><a href="code.html" class="current">Code</a></li>
         <li><a href="add.html">Add your data</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="mailto:hello@focolab.org">For more information contact us at: <mail>hello@focolab.org</mail></a></li>
+        <li><a>For more information contact us at: daniel.sprague[at]ucsf[dot]edu</a></li>
       </ul>
     </div>
-    <div id="main">
-      <img src="worm_image.jpg" alt="worm_image" id="image">
-      <div id="page-header-box">
-        <h2><b>Code</b></h2>
-        <p>This page contains descriptions and links to relevant code for reading, processing, and analyzing neuroPAL images.</p>
+    <div class="main">
+      <div class="page-header-box">
+        <header>Code</header>
+        <p>This page contains descriptions and links to relevant code for reading, processing, and analyzing NeuroPAL images.</p>
       </div>
-      <div id="data-box">
-        <h2><b><a href=https://github.com/focolab/eats-worm>Eats-worm</a></b></h2>
-        <img src="eats_worm.jpg" alt="eats_worm_GUI" id = "image">
-        <p>
-        Eats-worm is an open source software system for automatic neuron segmentation and identification with GUI 
-        support for manual curation of algorithmic results. Eats-worm contains a full data-processing pipeline that 
-        takes in raw neuroPAL images and metadata, runs basic preprocessing steps, finds neuron centers, assigns
-        probabilistic labels to those neuron centers, and extracts time series calcium activity from those neurons. 
-        Eats-worm can be used with minimal coding experience besides setting up a python environment and making basic 
-        parameter changes. The "NP_example.py" file is provided which demonstrates an example of how eats-worm can be used. 
-        The repository also contains code for converting raw images and segmentation results to the NWB format.
-        </p>
-        <p>
-        Instructions for installation and use of the eats-worm software is provided on the readme page of the attached Github 
-        repository.
-        </p>
-      </div>
-      
+      <div class="code-block">
+        <h2><b><a href=https://github.com/focolab/eats-worm>eats-worm</a></b></h2>
+
+        <div class="container">
+          <p>
+            <b>Language: Python</b>
+            <br><br>
+            <b>Use: automatic and curated segmentation and identification in NeuroPAL images, automated and curated segmentation and quantification in GCaMP time series </b> 
+            <br><br>
+            Open source software system for automatic neuron segmentation and identification with GUI 
+            support for manual curation of algorithmic results. Eats-worm contains a full data-processing pipeline that 
+            takes in raw NeuroPAL images and metadata, runs basic pre-processing steps, finds neuron centers, assigns
+            probabilistic labels to those neuron centers, and extracts time series calcium activity from those neurons. 
+            <br><br>
+            Instructions for installation and use of the eats-worm software is provided on the readme page of the attached Github 
+            repository.
+          </p>
+          <img src="eats-GUI.png" alt="eats-worm" id="code-image">
+        </div>
+      </div>   
+      <div class="code-block">
+        <h2><b><a href=https://github.com/Yemini-Lab/NeuroPAL_ID/releases/tag/v1.9.0>NeuroPAL ID software</a></b></h2>
+        <div class="container">
+          <p>
+            <b>Language: Malab or comes as pre-compiled app</b>
+            <br><br>
+            <b>Use: automatic and curated segmentation and identifcation in NeuroPAL images </b> 
+            <br><br>
+            NeuroPAL_ID is a standalone research tool which facilitates both manual and semi-automatic neuron detection, identification, tracking, and activity tracing in images and videos of C. Elegans worms injected with the NeuroPAL strain. It is fully compatible with NWB files, allowing users to both import and export volumes, neuron annotations, and neuron activity.
+          </p>
+          <img src="neuropal_software.png" alt="eats-worm" id="code-image">
+        </div>
+      </div>   
     </div>
   </body>
 </html>

@@ -5,65 +5,61 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="sidebar">
-      <div id="header">Menu</div>
+    <div class="menubar">
       <ul>
         <li><a href="index.htm" >Home</a></li>
         <li><a href="data.html">Data</a></li>
         <li><a href="code.html">Code</a></li>
         <li><a href="add.html" class="current">Add your data</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="mailto:hello@focolab.org">For more information contact us at: <mail>hello@focolab.org</mail></a></li>
+        <li><a>For more information contact us at: daniel.sprague[at]ucsf[dot]edu</a></li>
       </ul>
     </div>
-    <div id="main">
-      <img src="worm_image.jpg" alt="worm_image" id="image">
-      <div id="page-header-box">
-        <h2><b>Adding your own data</b></h2>
+    <div class="main">
+      <div class="page-header-box">
+        <header>Adding your own data</header>
         <p>
-        This page contains step by step instructions for converting your own data to the NWB format, adding that data 
-        to the DANDI archive, and then adding to this websute. This process should only require at minimum a set of 
-        volumetric tif images of neuroPAL worms and a very basic knowledge of python coding. The steps provided here 
-        should be sufficient for creating basic NWB files and uploading to DANDI, but please refer to the <a href="https://pynwb.readthedocs.io/en/stable/tutorials/index.html">Pynwb tutorials</a> 
-        for further details on creating and using NWB files.
-        </p>
-        <p>
-        The steps provided here allow you to create an NWB file with basic\ metadata, your raw images, your processed image,
-        and neuron center locations. You may freely add other data/metadata that is relevant to your specific experimentation
-        as well. Please reach out with any questions or concerns on this process.
+        This page contains step-by-step instructions for converting your own data to the NWB format, adding that data 
+        to the DANDI archive, and then adding to this website. This process should only require at minimum a set of 
+        volumetric tif images of neuroPAL worms and a very basic knowledge of Python coding. Please refer to the 
+        <a href="https://pynwb.readthedocs.io/en/stable/tutorials/index.html">Pynwb tutorials</a> for further details on creating and using NWB files.
+        <br><br>
+        The NWB format is highly flexible and includes all basic metadata for the experiment and the test subject as well as both raw data and processed data. The steps here assume that you 
+        are starting from raw neuroPAL structural images and/or GCaMP time series data and walk through the process of starting with that raw data, segmenting neurons, and then converting all
+        data into NWB files and uploading to DANDI. However, the NWB file structure allows you to flexibly include or exclude additional raw or processed data in a single NWB file.
         </p>
       </div>
-      <div id="add-data">
-        <p> If you already have your neuroPAL tif images as well as a list of neuron centers you can skip to step 3</p>
+      <div class="add-data">
+        <p> If you have already processed your raw data to get segmented neurons and IDs, you can skip to step 2.</p>
         <ol>
-            <li> Run your neuroPAL tif images through the <a href=https://github.com/focolab/eats-worm>eats-worm</a> pipeline, adjusting the necesssary parameters accordingly (see code page for more info on this software) </li>
+            <li> <b>Run your raw data through a segmentation/identification/quantification pipeline to yield the processed data that will go into the NWB files</b>
             <ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-                <li style="margin-left:2em">After running eats-worm, you should have your original raw neuroPAL image, a pre-processed neuroPAL image, and a list of detected/curated neuron centers </li>
+                <li style="margin-left:2em"> Use the <a href=https://github.com/focolab/eats-worm>eats-worm</a> pipeline to process data, adjusting the necessary parameters accordingly (see code page for more info on this software). </li>
+                <li style="margin-left:2em">For neuroPAL structural images, you should have your original raw neuroPAL image, a pre-processed neuroPAL image, and a list of detected/curated neuron centers with or without IDs. </li>
+                <li style="margin-left:2em">For GCaMP time series images, you should have your original raw data, a list of detected/curated neuron centers with or without IDs, and quantified calcium activity for each of those neurons. </li>
             </ol>
-            <li> You are now ready to convert your data to the NWB format. Example code for doing this conversion is provided <a href="https://github.com/focolab/eats-worm/tree/neuroPAL/NWB">here</a>.</li>
+            <li> <b>You are now ready to convert your data to the NWB format. Example code for doing this conversion is provided <a href="https://github.com/focolab/eats-worm/tree/master/NWB">here</a>.</b></li>
             <ol style="list-style-type: lower-alpha; padding-bottom: 0;">
                 <li style="margin-left:2em"> Look to the create_NWB.ipynb for example on writing a new NWB file from existing data.</li>
                 <li style="margin-left:2em"> For creating basic NWB files, you will only need to edit the create_file_FOCO function to properly point to the relevant data on your local system.</li>
-                <li style="margin-left:2em"> If you wish to add other data/metadata to your files, you will likely just need to add other processing modules. See <a href="https://pynwb.readthedocs.io/en/stable/tutorials/general/file.html#sphx-glr-tutorials-general-file-py">Pynwb documentation</a> for furhter details.</li>
+                <li style="margin-left:2em"> If you wish to add other data/metadata to your files, you will likely just need to add other processing modules. See <a href="https://pynwb.readthedocs.io/en/stable/tutorials/general/file.html#sphx-glr-tutorials-general-file-py">Pynwb documentation</a> for further details.</li>
                 <li style="margin-left:2em"> Create NWB files for all image sets you wish to include and save them in the same folder.</li>
+                <li style="margin-left:2em"> For more information about the <i>C. elegans</i> extension to NWB introduced here, please see <a href="https://github.com/dysprague/staged-extensions/tree/main/ndx-multichannel-volume">ndx-multichannel-volume.</a></li>
             </ol>
-            <li> You are now ready to upload your datasets to the DANDI archive. A detailed guide to uploading Dandisets can be found <a href="https://www.dandiarchive.org/handbook/13_upload/">here</a> </li>
+            <li> <b>You are now ready to upload your datasets to the DANDI archive. A detailed guide to uploading DANDIsets can be found <a href="https://www.dandiarchive.org/handbook/13_upload/">here</a></b> .</li>
             <ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-                <li style="margin-left:2em"> Create an account on the <a href="https://dandiarchive.org"> Dandi archive</a> (it may take 1-2 days for your account to be approved).</li>
+                <li style="margin-left:2em"> Create an account on the <a href="https://dandiarchive.org"> DANDI archive</a> (it may take 1-2 days for your account to be approved).</li>
                 <li style="margin-left:2em"> Create a new DANDIset and fill in the relevant details for the dataset you wish to upload.</li>
-                <li style="margin-left:2em"> Install Dandi and NWBinspector into a python environment (pip install -U dandi NWBinspector).</li>
-                <li style="margin-left:2em"> Run 'nwbinspector [source_folder] --config dandi' in the command line. This will let you know if there are any critical errors or best practice violations in your NWB files contained in [source_folder].</li>
-                <li style="margin-left:2em"> Fix any critical violations from nwbinspector and recreate your NWB files. Rerun nwbinspector and fix any new issues until there are no more critical violations.</li>
-                <li style="margin-left:2em"> Run an official validation of the NWB files by running dandi validate --ignore DANDI.NO_DANDISET_FOUND [source_folder]. Fix any additional issues that come up.</li>
-                <li style="margin-left:2em"> Run the below command line functions to upload your data to your new dandiset. Fill in [dataset_ID] with the ID of the dandiset you just created.</li>
+                <li style="margin-left:2em"> Install DANDI and NWBinspector into a Python environment (pip install -U dandi NWBinspector).</li>
+                <li style="margin-left:2em"> Follow the Data upload/management workflow outlined <a href="https://www.dandiarchive.org/handbook/13_upload/">here</a>.</li>
+                <li style="margin-left:2em"> Once your files have been uploaded, update the description of your dataset in the metadata section of the DANDIset. Please include a description of the contents as well as the names of objects created in the NWB file.</li>
             </ol>
-            <img src="dandi-upload.jpg" alt="dandi-upload" id = "image">
-            <li> Once you have uploaded your data to Dandi, please send us an email at <a href="mailto:hello@focolab.org"><mail>hello@focolab.com</mail></a> with the following information to have your dataset featured on this website. See the data page for examples of the information included on that page.</li>
+            <li><b>Once you have uploaded your data to DANDI, please send us an email at daniel.sprague[at]ucsf[dot]edu with the following information to have your dataset featured on this website. See the data page for examples of the information included on that page.</b></li>
             <ol style="list-style-type: lower-alpha; padding-bottom: 0;">
                 <li style="margin-left:2em"> The link to your dataset on DANDI.</li>
                 <li style="margin-left:2em"> A short description of the contents of your dataset.</li>
                 <li style="margin-left:2em"> How many worms are included in this dataset.</li>
-                <li style="margin-left:2em"> Example code for reading the relevant elements from your NWB files if different from the default provided in the create_NWB.ipynb file.</li>
+                <li style="margin-left:2em"> The lab this data came from and associated publications.</li>
                 <li style="margin-left:2em"> Any other relevant information or notes that you think would be helpful for people using your dataset.</li>
             </ol>
         </ol>
